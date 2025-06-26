@@ -136,18 +136,19 @@
           alert('Please fill in all fields.');
         }
       });
-        const toggle = document.getElementById('dropdownToggle');
-  const content = document.getElementById('dropdownContent');
+document.addEventListener('DOMContentLoaded', function () {
+  const dropdownToggle = document.getElementById('dropdownToggle');
+  const dropdownContent = document.getElementById('dropdownContent');
 
-  // Aç/kapa yap
-  toggle.addEventListener('click', function (e) {
-    e.preventDefault();
-    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+  dropdownToggle.addEventListener('click', function (e) {
+    e.stopPropagation(); // diğer tıklamalardan izole et
+    dropdownContent.classList.toggle('show');
   });
 
-  // Menü dışına tıklanınca kapansın (isteğe bağlı)
+  // Menü dışına tıklanınca kapanması için
   document.addEventListener('click', function (e) {
-    if (!document.getElementById('mobile-dropdown').contains(e.target)) {
-      content.style.display = 'none';
+    if (!dropdownContent.contains(e.target) && !dropdownToggle.contains(e.target)) {
+      dropdownContent.classList.remove('show');
     }
   });
+});
