@@ -60,6 +60,42 @@ body {
   color: var(--main-color);
   border-bottom: 3px solid var(--main-color);
 }
+.navbar .dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: 0.4rem;
+}
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--second-bg-color);
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    margin-top: 10px;
+    padding: 5px 0;
+    z-index: 1;
+    min-width: 200px;
+    padding-left: 0;
+  }
+
+  .dropdown-content a {
+    display: block;
+    padding: 10px 0px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: normal;
+    text-align: left;
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  .dropdown-content a:hover {
+    background-color: var(--bg-color);
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
 #menu-icon {
   font-size: 3.6rem;
   color: var(--main-color);
@@ -648,6 +684,35 @@ border-bottom: 3px solid var(--main-color);
   .footer{
     padding: 2rem 3%;
   }
+.navbar {
+  display: flex ;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+.navbar a,
+.navbar .dropdown {
+  margin: 0;
+}
+.navbar .dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--second-bg-color);
+  padding: 10px 0;
+  display: none;
+  min-width: 200px;
+  border-radius: 12px;
+  z-index: 10;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 }
 @media (max-width:895px){
   #menu-icon{
@@ -699,5 +764,27 @@ border-bottom: 3px solid var(--main-color);
   }
   .services-container{
     grid-template-columns: repeat(1,1fr);
+  }
+   .navbar .dropdown {
+    display: block;
+    margin: 3rem 0;
+  }
+
+  .navbar .dropdown-content {
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    display: none;
+  }
+
+  .navbar .dropdown-content a {
+    color: white;
+    padding: 1rem 0;
+    font-size: 1.8rem;
+  }
+
+  .navbar .dropdown:hover .dropdown-content {
+    display: block;
   }
 }
