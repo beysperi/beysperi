@@ -93,9 +93,7 @@ body {
     background-color: var(--bg-color);
   }
 
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
+
 #menu-icon {
   font-size: 3.6rem;
   color: var(--main-color);
