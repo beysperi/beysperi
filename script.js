@@ -136,3 +136,18 @@
           alert('Please fill in all fields.');
         }
       });
+        const toggle = document.getElementById('dropdownToggle');
+  const content = document.getElementById('dropdownContent');
+
+  // Aç/kapa yap
+  toggle.addEventListener('click', function (e) {
+    e.preventDefault();
+    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+  });
+
+  // Menü dışına tıklanınca kapansın (isteğe bağlı)
+  document.addEventListener('click', function (e) {
+    if (!document.getElementById('mobile-dropdown').contains(e.target)) {
+      content.style.display = 'none';
+    }
+  });
