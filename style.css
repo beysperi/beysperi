@@ -785,3 +785,8 @@ border-bottom: 3px solid var(--main-color);
     display: block;
   }
 }
+@media (max-width: 768px) {
+  .header {
+    padding: 2rem 5%;
+  }
+}
