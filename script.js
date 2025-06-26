@@ -136,19 +136,27 @@
           alert('Please fill in all fields.');
         }
       });
-document.addEventListener('DOMContentLoaded', function () {
-  const dropdownToggle = document.getElementById('dropdownToggle');
-  const dropdownContent = document.getElementById('dropdownContent');
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.getElementById("dropdownToggle");
+    const content = document.getElementById("dropdownContent");
 
-  dropdownToggle.addEventListener('click', function (e) {
-    e.stopPropagation(); // diğer tıklamalardan izole et
-    dropdownContent.classList.toggle('show');
-  });
+    // Tek tıklamada aç/kapat
+    toggle.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      content.classList.toggle("show");
+    });
 
-  // Menü dışına tıklanınca kapanması için
-  document.addEventListener('click', function (e) {
-    if (!dropdownContent.contains(e.target) && !dropdownToggle.contains(e.target)) {
-      dropdownContent.classList.remove('show');
-    }
+    // Dışarı tıklanırsa kapat
+    document.addEventListener("click", function (e) {
+      const isClickInside = toggle.contains(e.target) || content.contains(e.target);
+      if (!isClickInside) {
+        content.classList.remove("show");
+      }
+    });
+
+    // Scroll ile kapanmayı engelle
+    window.addEventListener("scroll", function () {
+      // İstersen buraya content.classList.remove("show") ekleme
+    });
   });
-});
