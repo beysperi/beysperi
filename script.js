@@ -26,6 +26,19 @@
         menu.classList.remove("bx-x");
         navbar.classList.remove("active");
       };
+        const dropdown = document.querySelector(".dropdown");
+  let timeout;
+
+  dropdown.addEventListener("mouseenter", () => {
+    clearTimeout(timeout);
+    dropdown.querySelector(".dropdown-content").style.display = "block";
+  });
+
+  dropdown.addEventListener("mouseleave", () => {
+    timeout = setTimeout(() => {
+      dropdown.querySelector(".dropdown-content").style.display = "none";
+    }, 400); // 400ms sonra kaybolur
+  });
 
       // Menu icon click
       menu.onclick = () => {
