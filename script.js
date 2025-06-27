@@ -46,62 +46,9 @@
         navbar.classList.toggle("active");
       };
       
-      // Testimonial slider
-      let currentTestimonial = 0;
-      const testimonials = [
-        {
-          text: "Working with Beysperi was an absolute pleasure. They delivered a stunning website that perfectly captured our brand identity. Their attention to detail and creative approach exceeded our expectations.",
-          name: "Sarah Johnson",
-          role: "CEO, TechStart"
-        },
-        {
-          text: "Beysperi transformed our outdated website into a modern, user-friendly platform that has significantly increased our conversion rates. Their expertise in both design and development is truly impressive.",
-          name: "Michael Chen",
-          role: "Marketing Director, InnovateCorp"
-        },
-        {
-          text: "I've worked with many designers, but Beysperi stands out for their creativity and technical skills. They not only understand design principles but also how to implement them effectively.",
-          name: "Emma Rodriguez",
-          role: "Product Manager, DesignHub"
-        }
-      ];
+ 
       
-      const testimonialContent = document.querySelector('.testimonial-content');
-      const prevBtn = document.getElementById('prev-btn');
-      const nextBtn = document.getElementById('next-btn');
-      const paginationDiv = document.querySelector('.swiper-pagination');
-      
-      // Create pagination bullets
-      testimonials.forEach((_, index) => {
-        const bullet = document.createElement('span');
-        bullet.classList.add('swiper-pagination-bullet');
-        if (index === 0) bullet.classList.add('swiper-pagination-bullet-active');
-        bullet.addEventListener('click', () => {
-          updateTestimonial(index);
-        });
-        paginationDiv.appendChild(bullet);
-      });
-      
-      function updateTestimonial(index) {
-        currentTestimonial = index;
-        const testimonial = testimonials[index];
-        
-        testimonialContent.innerHTML = `
-          <i class="bx bxs-quote-alt-left quote"></i>
-          <div class="description">${testimonial.text}</div>
-          <div class="name">${testimonial.name}</div>
-          <div class="role">${testimonial.role}</div>
-        `;
-        
-        // Update pagination
-        document.querySelectorAll('.swiper-pagination-bullet').forEach((bullet, i) => {
-          if (i === index) {
-            bullet.classList.add('swiper-pagination-bullet-active');
-          } else {
-            bullet.classList.remove('swiper-pagination-bullet-active');
-          }
-        });
-      }
+
       
       prevBtn.addEventListener('click', () => {
         currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
@@ -136,27 +83,3 @@
           alert('Please fill in all fields.');
         }
       });
-  document.addEventListener("DOMContentLoaded", function () {
-    const toggle = document.getElementById("dropdownToggle");
-    const content = document.getElementById("dropdownContent");
-
-    // Tek tıklamada aç/kapat
-    toggle.addEventListener("click", function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      content.classList.toggle("show");
-    });
-
-    // Dışarı tıklanırsa kapat
-    document.addEventListener("click", function (e) {
-      const isClickInside = toggle.contains(e.target) || content.contains(e.target);
-      if (!isClickInside) {
-        content.classList.remove("show");
-      }
-    });
-
-    // Scroll ile kapanmayı engelle
-    window.addEventListener("scroll", function () {
-      // İstersen buraya content.classList.remove("show") ekleme
-    });
-  });
